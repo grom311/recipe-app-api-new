@@ -1,7 +1,6 @@
 """
 Serializers for the user API views.
 """
-from attr import fields
 from django.contrib.auth import (
     get_user_model,
     authenticate,
@@ -47,4 +46,3 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
-    

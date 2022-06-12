@@ -2,7 +2,6 @@
 Test for the user API.
 """
 
-import email
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -13,6 +12,7 @@ from rest_framework import status
 
 CREATE_USER_URL = reverse('user:create')
 TOKEN = reverse('user:token')
+
 
 def create_user(**params):
     """create and return new user"""
@@ -79,7 +79,7 @@ class PublicUserApiTest(TestCase):
 
         self.assertIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-    
+
     def test_create_token_bas_credentials(self):
         """Test return error if credentials invalid."""
         create_user(email='test@example.com', password='goodppp')
